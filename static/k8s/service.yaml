@@ -1,0 +1,15 @@
+# kubectl port-forward svc/cloudlab-static-service 3000:80
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: cloudlab-static-service
+spec:
+  selector:
+    app: cloudlab-static
+  # type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

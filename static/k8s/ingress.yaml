@@ -1,0 +1,16 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cloudlab-static-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: cloud.lab.collective.ac
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: cloudlab-static-service
+              servicePort: 80

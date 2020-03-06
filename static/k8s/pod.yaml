@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cloudlab-static
+spec:
+  containers:
+    - name: cloudlab-static
+      image: salitrapraveen/cloudlab-static:latest
+      ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
