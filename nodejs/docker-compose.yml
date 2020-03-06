@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  pgdb:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: cloudlab-db
+      POSTGRES_PASSWORD: postgrespassword
+#    volumes:
+#      - type: bind
+#        source: ./pg-data
+#        target: /var/lib/postgresql/data
+    restart: always
+
+  api:
+    depends_on:
+      - pgdb
+    image: cloudlab-api:latest
+    environment:
+      TYPEORM_CONNECTION: postgres
+      TYPEORM_HOST: pgdb
+      TYPEORM_PORT: 5432
+      TYPEORM_DATABASE: cloudlab-db
+      TYPEORM_USERNAME: postgres
+      TYPEORM_PASSWORD: postgrespassword
+      TYPEORM_SYNCHRONIZE: "true"
+      TYPEORM_ENTITIES: "**/*.entity.js"
+    ports:
+      - "8080:8080"
+    restart: always

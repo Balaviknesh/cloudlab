@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  pgdb:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: cloudlab-db
+      POSTGRES_PASSWORD: postgrespassword
+#    volumes:
+#      - type: bind
+#        source: ./pg-data
+#        target: /var/lib/postgresql/data
+    restart: always
+
+  api:
+    depends_on:
+      - pgdb
+    image: cloudlab-api:latest
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://pgdb:5432/cloudlab-db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgrespassword
+    ports:
+      - "8080:8080"
+    restart: always

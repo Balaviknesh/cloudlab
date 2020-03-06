@@ -1,0 +1,12 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "database": "cloudlab-db",
+  "username": "postgres",
+  "password": "postgres",
+  "entities": [
+    "**/*.entity.js"
+  ],
+  "synchronize": true
+}
