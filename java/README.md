@@ -1,6 +1,6 @@
 # cloudlab-api  
 
-```
+
 # build the api     
 ./gradlew build     
 
@@ -16,4 +16,4 @@ docker-compose down
 # clean up  
 docker container prune -f   
 docker volume prune -f  
-```
+

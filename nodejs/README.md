@@ -1,6 +1,6 @@
 # cloudlab-api  
 
-```
+
 # install deps  
 npm install 
 
@@ -19,4 +19,4 @@ docker-compose down
 # clean up  
 docker container prune -f   
 docker volume prune -f  
-```
+

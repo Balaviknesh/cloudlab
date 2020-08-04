@@ -6,10 +6,10 @@ services:
     environment:
       POSTGRES_DB: cloudlab-db
       POSTGRES_PASSWORD: postgrespassword
-#    volumes:
-#      - type: bind
-#        source: ./pg-data
-#        target: /var/lib/postgresql/data
+    volumes:
+      - type: bind
+        source: ./pg-data
+        target: /var/lib/postgresql/data
     restart: always
 
   api:
